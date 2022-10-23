@@ -1,2 +1,2 @@
-# Tarea2-Progra2
-Tarea 2 de programación 2
+TAREA 1 DE PROGRAMACIÓN 2 (2022-2) (S1 2022)
+
