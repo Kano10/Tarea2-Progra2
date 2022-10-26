@@ -28,5 +28,12 @@ public abstract class Bebidas {
     public void setNumDisponible(int numDisponible) {
         this.numDisponible = numDisponible;
     }
-    
+    class CocaCola extends Bebidas{    
+    }
+    class Fanta extends Bebidas{
+        
+    }
+    class Sprite extends Bebidas{
+        
+    }
 }
