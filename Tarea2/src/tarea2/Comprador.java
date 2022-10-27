@@ -5,8 +5,8 @@ public class Comprador {
     private int vuelto = 0;
     private String sabBebida;
 
-    public Comprador(Moneda m, int numBebida, Expendedor exp) {
-        Bebida bebida = exp.comprarBebida(m, numBebida);
+    public Comprador(Moneda m, int numBebida, Maquina exp) {
+        Bebidas bebida = exp.comprarBebida(m, numBebida);
 
         if (bebida != null) {
             sabBebida = bebida.beber();

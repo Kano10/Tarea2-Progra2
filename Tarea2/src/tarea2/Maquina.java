@@ -40,11 +40,13 @@ public class Maquina {
         }
         if(bebida.precio<this.dineroIngresado && this.dineroIngresado>0){
             //excepcion
+            vuelto=this.dineroIngresado;
         }
         if(bebida.numDisponible<=0){
             //excepcion
+            vuelto=this.dineroIngresado;
         }
-        if(bebida.precio<this.dineroIngresado && this.dineroIngresado<1){
+        if(dineroIngresado==0){
             //excepcion
         }
         return bebida;

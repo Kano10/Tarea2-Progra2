@@ -4,6 +4,12 @@ public abstract class Bebidas {
     public int numSerie;
     public int precio;
     public int numDisponible;
+
+    public Bebidas(int numSerie, int precio, int numDisponible) {
+        this.numSerie = numSerie;
+        this.precio = precio;
+        this.numDisponible = numDisponible;
+    }
     
     public int getNumSerie(){
         return numSerie;
