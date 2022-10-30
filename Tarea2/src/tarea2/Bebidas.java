@@ -36,10 +36,22 @@ public abstract class Bebidas {
     }
 }
     
-class CocaCola extends Bebidas{    
+class CocaCola extends Bebidas{  
+    
+    public CocaCola(int numSerie, int precio, int numDisponible) {
+        super(numSerie, precio, numDisponible);
     }
-class Fanta extends Bebidas{    
+    }
+class Fanta extends Bebidas{  
+
+    public Fanta(int numSerie, int precio, int numDisponible) {
+        super(numSerie, precio, numDisponible);
+    }
     }
 class Sprite extends Bebidas{
+
+    public Sprite(int numSerie, int precio, int numDisponible) {
+        super(numSerie, precio, numDisponible);
+    }
     }
 
