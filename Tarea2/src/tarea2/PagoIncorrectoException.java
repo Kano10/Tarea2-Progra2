@@ -2,7 +2,7 @@ package tarea2;
 
 public class PagoIncorrectoException extends Exception {
 
-    public PagoIncorrectoException(String mensaje){
-        super("PagoIncorrectoException: "  + mensaje);
+    public PagoIncorrectoException(String comentario){
+        super("PagoIncorrectoException: "  + comentario);
     }
 }

@@ -6,25 +6,26 @@ public class Comprador {
     private String sabBebida;
 
     public Comprador(Moneda m, int numBebida, Maquina exp) {
-        Bebidas b = exp.Comprar(m, numBebida);
         try{
+            Bebidas b = exp.Comprar(m, numBebida);
         if (b != null) {
             sabBebida = b.beber();
 
-            while (exp.Vuelto() != 0) {
-                vuelto += 100;
-            }
 
         } else {
             sabBebida = "nada";
 
-            while (exp.Vuelto() != 0) {
-                vuelto += 100;
+            while (exp.vuelto != 0) {
+                vuelto =vuelto + exp.Vuelto();
             }
         }
         }catch(NoHayBebidaException | PagoIncorrectoException | PagoInsuficienteException e){
+            sabBebida=null;
             System.out.println(e.getMessage());
         }
+         while (exp.Vuelto() != 0) {
+                vuelto += 100;
+            }
     }
 
     public int cuantoVuelto() {
