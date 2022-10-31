@@ -1,27 +1,29 @@
 package tarea2;
 
 public class Comprador {
-
+    
     private int vuelto = 0;
     private String sabBebida;
 
     public Comprador(Moneda m, int numBebida, Maquina exp) {
-        Bebidas bebida = exp.comprarBebida(m, numBebida);
+        Bebidas b = exp.Comprar(m, numBebida);
+        try{
+        if (b != null) {
+            sabBebida = b.beber();
 
-        if (bebida != null) {
-            sabBebida = bebida.beber();
-
-            while (exp.getVuelto() != null) {
+            while (exp.Vuelto() != 0) {
                 vuelto += 100;
             }
 
         } else {
             sabBebida = "nada";
 
-            Moneda devolucion = exp.getVuelto();
-            if (devolucion != null) {
-                vuelto += devolucion.getValor();
+            while (exp.Vuelto() != 0) {
+                vuelto += 100;
             }
+        }
+        }catch(NoHayBebidaException | PagoIncorrectoException | PagoInsuficienteException e){
+            System.out.println(e.getMessage());
         }
     }
 

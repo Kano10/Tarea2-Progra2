@@ -34,24 +34,43 @@ public abstract class Bebidas {
     public void setNumDisponible(int numDisponible) {
         this.numDisponible = numDisponible;
     }
+    public abstract String beber();
 }
     
 class CocaCola extends Bebidas{  
-    
+    public CocaCola(){
+        
+    }
     public CocaCola(int numSerie, int precio, int numDisponible) {
         super(numSerie, precio, numDisponible);
     }
+    @Override
+    public String beber(){
+        return "Coca-Cola";
+    }
     }
 class Fanta extends Bebidas{  
-
+    public Fanta(){
+        
+    }
     public Fanta(int numSerie, int precio, int numDisponible) {
         super(numSerie, precio, numDisponible);
     }
+    @Override
+    public String beber(){
+        return "Fanta";
+    }
     }
 class Sprite extends Bebidas{
-
+    public Sprite(){
+        
+    }
     public Sprite(int numSerie, int precio, int numDisponible) {
         super(numSerie, precio, numDisponible);
+    }
+    @Override
+    public String beber(){
+        return "Sprite";
     }
     }
 

@@ -2,19 +2,23 @@ package tarea2;
 
 public class Maquina {
 
-    private Bebidas cocacola;
-    private Bebidas fanta;
-    private Bebidas sprite;
+    private CocaCola coca;
+    private Fanta fanta;
+    private Sprite sprite;
     public int vuelto;
     public int dineroIngresado;
+    public int precio;
 
-    public Maquina(Bebidas Cocacola, Bebidas Fanta, Bebidas Sprite, int vuelto, int dineroIngresado) {
-        this.cocacola = Cocacola;
-        this.fanta = Fanta;
-        this.sprite = Sprite;
+    public Maquina(CocaCola coca, Fanta fanta, Sprite sprite, int vuelto, int dineroIngresado, int precio) {
+        this.coca = coca;
+        this.fanta = fanta;
+        this.sprite = sprite;
         this.vuelto = vuelto;
         this.dineroIngresado = dineroIngresado;
+        this.precio = precio;
     }
+
+
 
     private void PrecioBebidas(Bebidas a, int precio) {
         a.setPrecio(precio);
@@ -24,27 +28,34 @@ public class Maquina {
         a.setNumDisponible(stock);
     }
 
-    private void setVuelto(int vuelto) {
-        this.vuelto = vuelto;
-    }
-
     public void setDineroIngresado(int dineroIngresado) {
         this.dineroIngresado = dineroIngresado;
     }
 
-    public Bebidas Comprar(int eleccion, Bebidas bebida) {
+    public Bebidas Comprar(Moneda m,int eleccion) throws NoHayBebidaException, PagoIncorrectoException, PagoInsuficienteException {
+        dineroIngresado=m.getValor();
+        Bebidas bebida;
         switch (eleccion) {
             case 1:
-                bebida = cocacola;
+                bebida = new CocaCola();
+                this.vuelto= this.dineroIngresado-precio;
+                return bebida;
+                break;
             case 2:
-                bebida = fanta;
+                bebida = new Fanta();
+                this.vuelto= dineroIngresado-precio;
+                return bebida;
+                break;
             case 3:
-                bebida = sprite;
-
+                bebida= new Sprite();
+                this.vuelto= dineroIngresado-precio;
+                return bebida;
+                break;
+            default:
+                bebida=null;
                 return bebida;
         }
-        try {
-            if (bebida.precio < this.dineroIngresado && this.dineroIngresado > 0) {
+            if (precio < this.dineroIngresado && this.dineroIngresado > 0) {
                 //excepcion
                 vuelto = this.dineroIngresado;
                 throw new PagoInsuficienteException("Pago insuficiente.");
@@ -58,7 +69,12 @@ public class Maquina {
                 //excepcion
                 throw new PagoIncorrectoException("No se ingreso el dinero.");
             }
-            catch (Exception e) {
-            System.out.println(e.getMessage());
+}
+        public int Vuelto(){
+           if(vuelto==0){
+               return 0;
+           }else{
+               return 100;
+           }
         }
-        }
+    }
